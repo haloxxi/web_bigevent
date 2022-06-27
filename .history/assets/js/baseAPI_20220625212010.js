@@ -3,15 +3,12 @@
 // 这个函数会给我们Ajax配置一个对象
 $.ajaxPrefilter(function(options) {
 
-    // 在发起真正的Ajax之前 统一拼接路径
-    // http://api-breakingnews-web.itheima.net
-    // https://www.showdoc.com.cn/1425457596992351/6972620264462285
-    // http://big-event-api-t.itheima.net
-    options.url = 'http://api-breakingnews-web.itheima.net' + options.url
+    // 在发起真正的Ajax之前 统一拼接路径 https://www.showdoc.com.cn/1425457596992351/6972620264462285
+    options.url = ' https://www.showdoc.com.cn/1425457596992351/6972620264462285' + options.url
         // console.log(options.url)
-
-    // 统一为有权限的接口设置headers
-    // 不是所有都要加headers 只有my开头的需要
+        // http://api-breakingnews-web.itheima.net
+        // 统一为有权限的接口设置headers
+        // 不是所有都要加headers 只有my开头的需要
     if (options.url.indexOf('/my/') !== -1) {
         options.headers = {
             Authorization: localStorage.getItem('token') || ''

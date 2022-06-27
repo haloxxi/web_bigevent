@@ -6,7 +6,6 @@ $.ajaxPrefilter(function(options) {
     // 在发起真正的Ajax之前 统一拼接路径
     // http://api-breakingnews-web.itheima.net
     // https://www.showdoc.com.cn/1425457596992351/6972620264462285
-    // http://big-event-api-t.itheima.net
     options.url = 'http://api-breakingnews-web.itheima.net' + options.url
         // console.log(options.url)
 

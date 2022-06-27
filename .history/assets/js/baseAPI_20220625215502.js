@@ -7,7 +7,7 @@ $.ajaxPrefilter(function(options) {
     // http://api-breakingnews-web.itheima.net
     // https://www.showdoc.com.cn/1425457596992351/6972620264462285
     // http://big-event-api-t.itheima.net
-    options.url = 'http://api-breakingnews-web.itheima.net' + options.url
+    options.url = 'http://big-event-api-t.itheima.net' + options.url
         // console.log(options.url)
 
     // 统一为有权限的接口设置headers
