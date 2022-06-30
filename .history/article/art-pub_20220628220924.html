@@ -1,0 +1,42 @@
+$(function() { var layer = layui.layer initCote() // 定义加载文章分类的方法 function initCote() { $.ajax({ method: 'GET', url: '/my/article/add', success: function(res) { if (res.status !== 0) { return layer.msg('初始化文件失败！') } // 调用模板引擎 渲染 var htmlStr = template('tpl-cate',
+res) $('[name=cate_id]').html(htmlStr) } }) } })
+<div class="layui-input-block">
+    <!-- lay-verify="required"必填项属性 -->
+    <input type="text" name="title" required lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+</div>
+</div>
+<!-- 第二行 -->
+<div class="layui-form-item">
+    <label class="layui-form-label">文章类别</label>
+    <div class="layui-input-block">
+        <select name="cate_id" lay-verify="required">
+                    
+                            <!-- 这类的可选项 应该是动态的获取请求过来 -->
+                          
+                          </select>
+    </div>
+</div>
+</form>
+</div>
+</div>
+<!-- 分类的模板结构 -->
+<script type="text/html" id="tpl-cate">
+    <option value="">请选择文章类别</option>
+    {{each data}}
+    <option value="{{$value.Id}}">{{$value.name}}</option>
+    {{/each}}
+</script>
+
+
+
+<!-- 导入第三方js -->
+<script src="/assets/lib/layui/layui.all.js"></script>
+<script src="/assets/lib/jquery.js"></script>
+<script src="/assets/js/baseAPI.js"></script>
+<script src="/assets/lib/template-web.js"></script>
+
+<!-- 导入自己写的js -->
+<script src="/assets/js/article/art-pub.js"></script>
+</body>
+
+</html>
